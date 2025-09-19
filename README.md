@@ -61,7 +61,8 @@ It provides a modern and user-friendly interface for managing **customers, quote
 ```bash
 git clone https://github.com/username/RADMS.git
 cd RADMS
-2. Install Dependencies
+
+### 2. Install Dependencies
 bash
 Copy code
 npm install
