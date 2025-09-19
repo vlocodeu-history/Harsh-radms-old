@@ -2,10 +2,11 @@
 
 ![Electron](https://img.shields.io/badge/Electron-20232A?style=for-the-badge&logo=electron&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-> A modern desktop-based **RDBMS management system** built with **Electron, Next.js, and Supabase**.  
+> A modern desktop-based **RDBMS management system** built with **Next.js, and Prisma ORM**.  
 > Manage **customers, quotes, purchase orders, bills, and payments** — all in one place with secure authentication and PDF support.
 
 ---
@@ -13,8 +14,8 @@
 ## ✨ Features
 
 - 🔐 **Authentication & Security**
-  - Supabase authentication
-  - Row-Level Security (RLS) for user-specific data access
+  - Prisma ORM with database authentication
+  - Role-based access control (RLS equivalent handled in backend logic)
 
 - 👥 **Customer Management**
   - Add, edit, and delete customers
@@ -25,7 +26,7 @@
   - Create and edit quotes with dynamic line items
   - Support for tax, discounts, adjustments, and totals
   - Notes, terms & file attachment support
-  - JSONB-based storage for flexibility
+  - Stored as JSON fields for flexibility
   - Quote detail tabs with PDF preview and download
 
 - 📦 **Purchase Orders**
@@ -54,9 +55,10 @@
 ## 🛠️ Tech Stack
 
 - **Frontend & Desktop App:** Electron + Next.js + React + TailwindCSS  
-- **Database & Backend:** Supabase (Postgres with JSONB support)  
+- **Backend & Database Layer:** Prisma ORM + Prisma Client  
+- **Database:** PostgreSQL / MySQL / SQLite (configurable in `schema.prisma`)  
 - **UI Components:** shadcn/ui, lucide-react  
-- **PDF Handling:** Supabase Storage + PDF preview  
+- **PDF Handling:** Supabase Storage (optional) / Local PDF preview 
 
 ---
 
@@ -76,14 +78,23 @@ npm install
 ```
 ---
 
-### 3. Configure Supabase
-Create a project on Supabase and add your credentials in a .env.local file:
+### 3. Configure Database (Prisma)
 
+Update your `.env` file with your database connection string:
 ```
-env
+DATABASE_URL="postgresql://user:password@localhost:5432/radms"
+```
+---
 
-NEXT_PUBLIC_SUPABASE_URL=your-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-key
+Run Prisma migrations:
+```
+npx prisma migrate dev
+```
+---
+
+Generate the Prisma Client:
+```
+npx prisma generate
 ```
 ---
 
@@ -93,24 +104,26 @@ npm run dev
 ```
 ---
 
-### 5. Build the Desktop App
+### 5. Build the website
 ```
 npm run build
-npm run electron
 ```
 ---
 
 ### 📂 Project Structure
 ```
 RADMS/
+│── prisma/
+│   ├── schema.prisma     # Prisma schema definition
+│   ├── migrations/       # Database migrations
 │── src/
-│   ├── components/      # Reusable React components
-│   ├── pages/           # Next.js pages (quotes, customers, etc.)
-│   ├── lib/             # Supabase client and helpers
-│   ├── styles/          # Tailwind and global styles
-│── public/              # Static assets
-│── package.json         # Dependencies & scripts
-│── README.md            # Project documentation
+│   ├── components/       # Reusable React components
+│   ├── pages/            # Next.js pages (quotes, customers, etc.)
+│   ├── lib/              # Prisma client, utilities
+│   ├── styles/           # Tailwind and global styles
+│── public/               # Static assets
+│── package.json          # Dependencies & scripts
+│── README.md             # Project documentation
 ```
 ---
 ### 📸 Screenshots (Coming Soon)
