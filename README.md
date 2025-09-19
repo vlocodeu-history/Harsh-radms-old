@@ -1,7 +1,12 @@
 # RADMS – RDBMS Desktop Application
 
-RADMS is a **desktop-based RDBMS management system** built with **Electron, Next.js, and Supabase**.  
-It provides a modern and user-friendly interface for managing **customers, quotes, purchase orders, bills, and payments** — all in one place.  
+![Electron](https://img.shields.io/badge/Electron-20232A?style=for-the-badge&logo=electron&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
+
+> A modern desktop-based **RDBMS management system** built with **Electron, Next.js, and Supabase**.  
+> Manage **customers, quotes, purchase orders, bills, and payments** — all in one place with secure authentication and PDF support.
 
 ---
 
@@ -58,39 +63,45 @@ It provides a modern and user-friendly interface for managing **customers, quote
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
-```bash
+```
 git clone https://github.com/username/RADMS.git
 cd RADMS
-
+```
 ---
 
 ### 2. Install Dependencies
-```bash
 
-bash
-Copy code
+```
 npm install
-3. Configure Supabase
-Create a project on Supabase
+```
+---
 
-Add your SUPABASE_URL and SUPABASE_ANON_KEY in a .env.local file:
+### 3. Configure Supabase
+Create a project on Supabase and add your credentials in a .env.local file:
 
+```
 env
-Copy code
+
 NEXT_PUBLIC_SUPABASE_URL=your-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-key
-4. Run the Development Server
-bash
-Copy code
+```
+---
+
+### 4. Run the Development Server
+```
 npm run dev
-5. Build the Desktop App
-bash
-Copy code
+```
+---
+
+### 5. Build the Desktop App
+```
 npm run build
 npm run electron
-📂 Project Structure
-php
-Copy code
+```
+---
+
+### 📂 Project Structure
+```
 RADMS/
 │── src/
 │   ├── components/      # Reusable React components
@@ -100,10 +111,14 @@ RADMS/
 │── public/              # Static assets
 │── package.json         # Dependencies & scripts
 │── README.md            # Project documentation
-📸 Screenshots (Coming Soon)
-You can add screenshots of your UI here for better presentation.
+```
+---
+### 📸 Screenshots (Coming Soon)
+`Add screenshots of your UI here for better presentation.`
 
-✅ Roadmap
+---
+
+### ✅ Roadmap
  Add multi-user role support (Admin, Manager, Staff)
 
  Export quotes and invoices to PDF/Excel
@@ -112,13 +127,19 @@ You can add screenshots of your UI here for better presentation.
 
  Improve dashboard analytics
 
-🤝 Contributing
+---
+
+### 🤝 Contributing
 Contributions are welcome!
 If you’d like to improve the system, please fork the repo and submit a pull request.
 
-📜 License
+---
+
+### 📜 License
 This project is licensed under the MIT License – feel free to use it in your own projects.
 
-👨‍💻 Author
-Vlocodeu
-Built by the Engineering Team with ❤️
+---
+
+### 👨‍💻 Author
+`Vlocodeu`
+Built by the Developer Team with ❤️
